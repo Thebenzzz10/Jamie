@@ -68,9 +68,10 @@
         </form>
     </div>
 
+   
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        emailjs.init();  // No need to specify the user ID here
+        emailjs.init(); // Automatic initialization without user ID
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
@@ -79,19 +80,19 @@
             var name = document.getElementById('name').value;
             var message = document.getElementById('message').value;
 
-            // Use EmailJS to send the email
             var templateParams = {
                 name: name,
                 message: message,
             };
 
-            emailjs.send('service_q5nycnh', 'template_ffu7k3y', templateParams)  // Replace with correct service and template IDs
+            // Send email using EmailJS
+            emailjs.send('service_q5nycnh', 'template_ffu7k3y', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response);
                     alert('Message sent successfully!');
                 }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Oops! Something went wrong.');
+                    console.error('FAILED...', error);
+                    alert('Oops! Something went wrong. Please try again later.');
                 });
         });
     </script>
