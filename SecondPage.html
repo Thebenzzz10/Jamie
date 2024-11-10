@@ -20,7 +20,7 @@
             padding: 50px;
             border-radius: 20px;
             background-color: rgba(219, 169, 221, 0.9);
-            box-shadow: 0 6cap 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
         }
         .message-card h1 {
             font-size: 1.8em;
@@ -57,7 +57,7 @@
 <body>
     <div class="message-card">
         <h1>Send Your Message</h1>
-        <form action="renierbenalma@gmail.com" method="post" enctype="text/plain">
+        <form onsubmit="sendEmail(); return false;">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
             
@@ -67,5 +67,16 @@
             <button type="submit">Send Message</button>
         </form>
     </div>
+
+    <script>
+        function sendEmail() {
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+            const email = "renierbenalma@gmail.com";
+            const subject = `Message from ${name}`;
+            const body = `Name: ${name}%0D%0A%0D%0A${message}`;
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
 </body>
 </html>
