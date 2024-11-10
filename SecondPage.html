@@ -69,33 +69,31 @@
     </div>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init("service_q5nycnh");  // Replace "YOUR_USER_ID" with your actual EmailJS user ID
-    })();
+    <script>
+        emailjs.init();  // No need to specify the user ID here
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
 
-        // Collect form data
-        var name = document.getElementById('name').value;
-        var message = document.getElementById('message').value;
+            // Collect form data
+            var name = document.getElementById('name').value;
+            var message = document.getElementById('message').value;
 
-        // Use EmailJS to send the email
-        var templateParams = {
-            name: name,
-            message: message,
-        };
+            // Use EmailJS to send the email
+            var templateParams = {
+                name: name,
+                message: message,
+            };
 
-        emailjs.send('service_q5nycnh', 'template_ffu7k3y', templateParams)  // Replace with correct service and template IDs
-            .then(function(response) {
-                console.log('SUCCESS!', response);
-                alert('Message sent successfully!');
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert('Oops! Something went wrong.');
-            });
-    });
-</script>
+            emailjs.send('service_q5nycnh', 'template_ffu7k3y', templateParams)  // Replace with correct service and template IDs
+                .then(function(response) {
+                    console.log('SUCCESS!', response);
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Oops! Something went wrong.');
+                });
+        });
+    </script>
 </body>
 </html>
