@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Message</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000 20%, #fd95f5 100%);
+        }
+        .message-card {
+            text-align: center;
+            max-width: 600px;
+            padding: 50px;
+            border-radius: 20px;
+            background-color: rgba(219, 169, 221, 0.9);
+            box-shadow: 0 6cap 10px rgba(0, 0, 0, 0.2);
+        }
+        .message-card h1 {
+            font-size: 1.8em;
+            color: #4a90e2;
+        }
+        .message-card label {
+            display: block;
+            font-size: 1em;
+            margin-top: 10px;
+            color: #333;
+        }
+        .message-card input, .message-card textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .message-card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .message-card button:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-card">
+        <h1>Send Your Message</h1>
+        <form action="renierbenalma@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>
