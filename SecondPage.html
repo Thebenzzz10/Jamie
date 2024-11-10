@@ -57,7 +57,7 @@
 <body>
     <div class="message-card">
         <h1>Send Your Message</h1>
-        <form onsubmit="sendEmail(); return false;">
+        <form id="contact-form">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
             
@@ -68,15 +68,35 @@
         </form>
     </div>
 
+    <!-- Add the EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        function sendEmail() {
-            const name = document.getElementById("name").value;
-            const message = document.getElementById("message").value;
-            const email = "renierbenalma@gmail.com";
-            const subject = `Message from ${name}`;
-            const body = `Name: ${name}%0D%0A%0D%0A${message}`;
-            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
+        (function() {
+            emailjs.init("uservice_q5nycnh");  // Replace "YOUR_USER_ID" with your EmailJS user ID
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Collect form data
+            var name = document.getElementById('name').value;
+            var message = document.getElementById('message').value;
+
+            // Use EmailJS to send the email
+            var templateParams = {
+                name: name,
+                message: message,
+            };
+
+            emailjs.send('gmail', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response);
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Oops! Something went wrong.');
+                });
+        });
     </script>
 </body>
 </html>
