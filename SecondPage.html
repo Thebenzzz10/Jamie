@@ -61,9 +61,8 @@
             <label for="to_name">Your Name:</label>
             <input type="text" id="to_name" name="to_name" required>
 
-            <!-- Add email field if required by EmailJS template -->
             <label for="reply_to">Your Email:</label>
-            <input type="reply_to" id="reply_to" name="reply_to" required>
+            <input type="email" id="reply_to" name="reply_to" required>
 
             <label for="message">Your Message:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
@@ -79,15 +78,19 @@
         })();
         
         window.onload = function() {
-            document.getElementById('service_q5nycnh').addEventListener('submit', function(event) {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();  // Prevent the default form submission
 
+                // Log data to check form before sending
+                console.log("Form submitted");
+
+                // Send EmailJS form
                 emailjs.sendForm('service_q5nycnh', 'template_ffu7k3y', this)
                     .then(function(response) {
                         console.log('SUCCESS!', response.status, response.text);
                         alert('Message sent successfully!');
                     }, function(error) {
-                        console.log('FAILED...', error);
+                        console.error('FAILED...', error);
                         alert('Oops! Something went wrong. Please try again later.');
                     });
             });
