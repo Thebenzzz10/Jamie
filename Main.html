@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3ace1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            width: 90%;
+            max-width: 700px;
+            background-color: #2d282e;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(20, 30, 50, 50);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #000000;
+            color: rgb(245, 232, 232);
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .messages {
+            padding: 15px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 75%;
+        }
+        .message.sent {
+            background-color: #e1ffe1;
+            align-self: flex-end;
+        }
+        .message.received {
+            background-color: #f1f1f1;
+            align-self: flex-start;
+        }
+        .input-area {
+            display: flex;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            justify-content: flex-end;
+        }
+        /* Styles for the "Next" button */
+        .input-area .button {
+            padding: 10px 20px;
+            background-color: #7268e6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+        .input-area .button:hover {
+            background-color: #b5b3be;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="header">Jamie Concepcion</div>
+    <div class="messages">
+        <div class="message sent">Hello! I want to say is you are super kind saka hindi ko inaasahan kung gaano kaganda ang iyong kalooban. Kung magiging gf kita napaka swerte ko sayo kasi naman nasayo na lahat tapos grabe yung faith mo kay God napaka angas mo kaya. Yan yung mga ugali na hinahangad ko saka ikaw yung isang girl na gusto ko mapasakin at mabigay kung ano ang deserve mo. I know on and off mga chats at usap natin pero parang bumabalik lahat bumabalik yung mga araw na nawala at dapat ituloy. Siguro si Lord na nag pplano neto kung ano meron satin. ayun lang next mo na lalabs. Dito lang ako palagi para sayo. Ingat ka palagi!!</div>
+    </div>
+    <div class="input-area">
+        <a href="FirstPage.html" class="button">Next</a>
+    </div>
+</div>
+
+</body>
+</html>
