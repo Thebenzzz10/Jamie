@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Message</title>
+    <title>Send Your Message</title>
     <style>
         body {
             display: flex;
@@ -58,13 +58,12 @@
     <div class="message-card">
         <h1>Send Your Message</h1>
         <form id="contact-form">
-            
-            <label>Email</label>
-            <input type="text" name="user_name">
-            
-            <label>Message</label>
-            <textarea name="message"></textarea>
-            
+            <label for="user_name">Your Name:</label>
+            <input type="text" id="user_name" name="user_name" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
             <button type="submit">Send Message</button>
         </form>
     </div>
@@ -72,25 +71,23 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init({
-              publicKey: "WKQugshxD54_RrrEV",
-            });
+            emailjs.init("WKQugshxD54_RrrEV");  // Your EmailJS Public Key
         })();
-    </script>
-    <script type="text/javascript">
+        
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // these IDs from the previous steps
+                event.preventDefault();  // Prevent the default form submission
+
                 emailjs.sendForm('contact_service', 'contact_form', this)
-                    .then(() => {
-                        console.log('SUCCESS!');
-                    }, (error) => {
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('Message sent successfully!');
+                    }, function(error) {
                         console.log('FAILED...', error);
+                        alert('Oops! Something went wrong. Please try again later.');
                     });
             });
-        }
+        };
     </script>
 </body>
 </html>
